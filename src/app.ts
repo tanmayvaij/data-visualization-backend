@@ -1,6 +1,7 @@
 import express from "express"
 import { config } from "dotenv"
 import { connectDB } from "./db"
+import cors from "cors"
 
 
 config()
@@ -8,6 +9,9 @@ config()
 
 const app = express()
 const PORT = process.env.PORT || 5000
+
+
+app.use(cors())
 
 
 import DataRouter from "./routes/Data"

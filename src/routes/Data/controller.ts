@@ -1,7 +1,8 @@
 import { Request, Response } from "express"
 import { DataSchema } from "../../schema"
 
-export const handleGetData = async (req: Request, res: Response) => {
+
+export const handleGetDataBykeyValue = async (req: Request, res: Response) => {
 
     const { key, value } = req.query
     
@@ -11,4 +12,15 @@ export const handleGetData = async (req: Request, res: Response) => {
 
     res.json({ noOfRecords, records })
     
+}
+
+
+export const handleGetAllData = async (req: Request, res: Response) => {
+
+    const records = await DataSchema.find({})
+
+    const noOfRecords = records.length
+
+    res.json({ noOfRecords, records })
+
 }

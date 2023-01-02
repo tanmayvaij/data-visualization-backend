@@ -1,8 +1,10 @@
 import { Router } from "express"
-import { handleGetData } from "./controller"
+import { handleGetAllData, handleGetDataBykeyValue } from "./controller"
 
 const router = Router()
 
-router.route("/getdata").get(handleGetData)
+router.route("/getAllData").get(handleGetAllData)
+
+router.route("/getDataBykeyValue").get(handleGetDataBykeyValue)
 
 export default router
